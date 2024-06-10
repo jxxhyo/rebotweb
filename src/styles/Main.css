@@ -1,0 +1,257 @@
+body {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  -ms-overflow-style: none;
+  background-image: url("/src/img/chatback1.png"); /* 배경 이미지 추가 */
+  background-size: cover; /* 이미지가 전체를 덮도록 설정 */
+  background-position: center; /* 배경 이미지 가운데 정렬 */
+  background-repeat: no-repeat; /* 배경 이미지 반복 금지 */
+  height: 100vh;
+}
+
+.header__chatbot-title {
+  width: 100%;
+  text-align: center;
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.8
+  ); /* Slightly transparent background */
+  padding: 10px 0;
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+}
+
+.container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* .main__container는 페이지 높이의 85%를 차지합니다. */
+.main__container {
+  height: 90%;
+  display: flex;
+  flex-direction: row;
+}
+
+.top__container {
+  display: flex;
+  justify-content: center; /* 모든 자식을 중앙에 배치 */
+  align-items: center; /* 수직 가운데 정렬 */
+  height: 10%; /* 높이 15% */
+  position: relative; /* 상대 위치를 기준으로 자식 위치 설정 */
+  padding: 0 20px; /* 좌우 여백 추가, 필요에 따라 조정 */
+}
+
+.name_k-rebot {
+  display: flex;
+  justify-content: center;
+  font-family: "Architype Aubette W90", sans-serif;
+  /* font-weight: bold; */
+  font-size: 50px;
+  line-height: 100%;
+  color: yellow;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.bookmark_click {
+  font-family: "Architype Aubette W90", sans-serif;
+  font-size: 25px;
+  color: white;
+  font-weight: 500;
+  position: absolute;
+  right: 150px; /* 필요에 따라 조정 */
+}
+
+.header__logout {
+  font-family: "Architype Aubette W90", sans-serif;
+  font-size: 25px;
+  color: white;
+  font-weight: 500;
+  position: absolute;
+  right: 50px; /* 필요에 따라 조정 */
+}
+
+.recommend {
+  width: 28%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 30px;
+  margin-left: 20px;
+  margin-right: 100px;
+}
+
+.recommend__container {
+  height: 98%;
+  width: 90%;
+  border-radius: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+}
+
+.recommend__button-container {
+  width: 100%;
+  height: 7%;
+  display: inline-block;
+  text-align: center;
+  font-weight: 400;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+
+.recommend__map-button {
+  border: none;
+  cursor: pointer;
+  position: relative;
+  color: white;
+  font-size: 22px;
+  background-color: #0eb2ff;
+  border-radius: 8px;
+  width: 42%;
+  height: 50px;
+  margin-left: 8px;
+}
+
+.recommend__recommend-button {
+  border: none;
+  cursor: pointer;
+  position: relative;
+  color: white;
+  font-size: 22px;
+  background-color: #0eb2ff;
+  border-radius: 8px;
+  width: 42%;
+  height: 50px;
+  margin-right: 8px;
+}
+
+.search {
+  width: 100%;
+  height: 7%;
+  margin-top: 5px;
+}
+.recommend__input-box {
+  display: flex;
+  align-items: center;
+  width: 81.5%; /* 너비를 100%로 설정 */
+  border: 1px solid #ccc;
+  border-radius: 8px; /* 둥근 모서리 설정 */
+  padding: 5px 15px; /* 패딩 설정 */
+  background-color: #0eb2ff; /* 배경색 설정 */
+}
+
+.recommend__input {
+  flex-grow: 1; /* 입력 필드가 가능한 많은 공간을 차지하도록 설정 */
+  border: none; /* 테두리 제거 */
+  padding: 10px; /* 내부 패딩 설정 */
+  font-size: 18px; /* 폰트 크기 설정 */
+  border-radius: 25px; /* 둥근 모서리 설정 */
+  outline: none; /* 포커스 시 외곽선 제거 */
+  background-color: #0eb2ff; /* 배경색 설정 */
+  color: white; /* 글자색 설정 */
+  width: 100%;
+}
+
+.recommend__input::placeholder {
+  color: white; /* 텍스트 색상 (희미한 흰색) */
+  font-size: 18px; /* 텍스트 크기 */
+  opacity: 1; /* 투명도 설정 (일부 브라우저에서는 필요할 수 있음) */
+}
+
+.recommend__input_button {
+  background: white; /* 배경색 설정 */
+  border: none; /* 테두리 제거 */
+  cursor: pointer; /* 커서 포인터로 변경 */
+  width: 35px; /* 버튼 너비 설정 */
+  height: 25px; /* 버튼 높이 설정 */
+  border-radius: 20px; /* 둥근 모서리 설정 */
+  font-size: 18px; /* 폰트 크기 설정 */
+  color: #0eb2ff; /* 글자색 설정 */
+  text-align: center; /* 텍스트 가운데 정렬 */
+}
+
+.chat {
+  margin-top: 10px;
+  width: 60%;
+  height: 96%;
+  display: flex;
+  flex-direction: column;
+}
+
+.header__text-box {
+  display: flex;
+  flex-direction: row;
+  justify-content: center; /* 가로 방향으로 가운데 정렬 */
+  align-items: center; /* 세로 방향으로 가운데 정렬 */
+  text-align: center;
+  align-content: center;
+  margin-top: -10px;
+}
+
+.header__k-rebot {
+  font-family: "Architype Aubette W90", sans-serif;
+  /* font-weight: bold; */
+  font-size: 37px;
+  line-height: 100%;
+  color: yellow;
+  margin-left: 0; /* 왼쪽 마진 제거 */
+}
+
+.header__text-box02 {
+  display: inline-block;
+  text-align: center;
+  margin: -10px 0 35px 35%;
+  /* background-color: red; */
+}
+
+.header__text-box03 {
+  display: inline-block;
+  text-align: center;
+  /* background-color: red; */
+  margin: 20px 0 45px 0;
+}
+
+.header__welcome {
+  font-size: 16px;
+  color: black;
+  font-weight: 500;
+}
+
+.recommend__reload-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: 14px;
+  height: 14px;
+  background-image: url("./../img/refresh-arrow.png");
+  background-size: cover;
+  background-position: center;
+  outline: none;
+}
+
+.recommend__error-message {
+  margin-top: 0;
+  /* margin-bottom: 20; */
+  color: rgb(210, 42, 42);
+  font-size: 13px;
+}
+
+/* .recommend__map-recommend-container의 스타일 */
+.recommend__map-recommend-container {
+  display: flex; /* Flexbox 사용 */
+  flex-direction: column; /* 세로 정렬 */
+  width: 80%; /* 너비를 100%로 설정 */
+  height: 100%; /* 높이를 100%로 설정 */
+  padding: 20px 35px; /* 패딩 추가 */
+  box-sizing: border-box; /* 패딩을 포함한 박스 크기 계산 */
+}

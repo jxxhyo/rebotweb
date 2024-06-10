@@ -1,0 +1,90 @@
+.font {
+  font-family: "Poppins";
+  font-style: normal;
+}
+.recommend__map-recommend-container {
+  /* border: 1.5px solid #9a9a9a; */
+  width: 100%;
+  overflow: auto;
+  height: 100%;
+}
+
+.recommend-item__container {
+  /* opacity: 0; */
+  /* transform: translateY(20px); */
+  /* transition: opacity 0.5s ease, transform 0.5s ease; */
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.recommend-item__img {
+  margin-right: 20px;
+  border-radius: 12px;
+  margin-top: 0px;
+  width: 50%;
+  height: 50%;
+  z-index: 2;
+}
+
+.recommend-item__img:hover {
+  height: 100%;
+  width: 100%;
+}
+
+.recommend-item__text {
+  width: 100%;
+  margin-left: 25px;
+  margin-right: 10px;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: bold;
+  max-width: 80px;
+  background-color: ;
+}
+
+.recommend-item__list {
+  height: 100%;
+}
+
+.heart-icon {
+  width: 27px;
+  height: 27px;
+  cursor: pointer;
+  margin-left: auto;
+  margin-right: 0px;
+  z-index: 1;
+  position: relative;
+  /* margin-bottom: 120px; */
+}
+
+.couple-icon {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  position: relative;
+  margin-right: 5px;
+  margin-left: 8px;
+}
+.recommend-item__icon-container {
+  background-color: rgba(0, 0, 0, 0.1); /* 글자색 설정 */
+  display: inline-flex; /* inline-flex로 변경 */
+  border-radius: 8px;
+  align-items: center;
+  margin-top: 10px;
+  min-width: 50px; /* 최소 너비 설정 */
+  padding: 4px 10px; /* 내부 여백 추가 */
+  box-sizing: border-box; /* 패딩 포함한 박스 크기 계산 */
+  margin-right: 5px;
+  margin-bottom: 20px;
+}
+
+.recommend-item__icon-text {
+  font-size: 12px;
+  white-space: nowrap; /* 텍스트 줄 바꿈 방지 */
+  margin-top: 4px;
+  margin-bottom: 4px;
+  color: black;
+  /* margin-left: 10px; */
+  /* margin-right: 10px; */
+}
