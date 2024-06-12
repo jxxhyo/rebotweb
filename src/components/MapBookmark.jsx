@@ -90,7 +90,12 @@ const MapBookmark = ({
   return (
     <div className="map-bookmark__container">
       <div className="map-bookmark__text-icon-container">
-        <p className="map-bookmark__text font">{restaurantName}</p>
+        <button
+          className="map-bookmark__thumbnail-button"
+          onClick={handleThumbnailClick}
+        >
+          {restaurantName}{" "}
+        </button>
         {isBookmarked(restaurantName) ? (
           <img
             src={bookmark}
@@ -108,12 +113,6 @@ const MapBookmark = ({
         )}
       </div>
 
-      <button
-        className="map-bookmark__thumbnail-button"
-        onClick={handleThumbnailClick}
-      >
-        {isEnlarged ? t("Map.closethumbnail") : t("Map.thumbnail")}
-      </button>
       <img
         src={`http://3.36.105.171:8000${thumbnailImg}`}
         className={`map-bookmark__img ${isEnlarged ? "enlarged" : ""}`}

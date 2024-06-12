@@ -28,9 +28,9 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(90deg, rgba(15, 124, 240, 0.937255) 0%, rgba(62, 195, 254, 0.937255) 100%);
-  position: relative;
-  overflow: hidden;
+  background-image: url("./../img/register.png");
+  background-repeat: no-repeat; /* 이미지를 반복하지 않음 */
+  background-size: cover;
 }
 
 .register__images {
@@ -54,9 +54,8 @@ body {
   bottom: 20%;
   right: -2%;
   width: 20%;
-  background-image: url('./../img/cupcake.png');
+  background-image: url("./../img/cupcake.png");
   background: rgba(255, 255, 255, 0); /* 배경 제거 */
-
 }
 
 .register-left__image3 {
@@ -70,18 +69,16 @@ body {
   left: 5%;
   width: 20%;
   transform: rotate(0deg);
-  background-image: url('./../img/cheese.png');
+  background-image: url("./../img/cheese.png");
   background: rgba(255, 255, 255, 0); /* 배경 제거 */
-
 }
 
 .register-left__image5 {
   bottom: -10%;
   left: 20%;
   width: 20%;
-  background-image: url('./../img/egg.png');
+  background-image: url("./../img/egg.png");
   background: rgba(255, 255, 255, 0); /* 배경 제거 */
-
 }
 
 .register-left__image6 {
@@ -182,6 +179,6 @@ form {
 }
 
 .font {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   font-style: normal;
 }

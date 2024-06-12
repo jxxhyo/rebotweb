@@ -2,56 +2,72 @@
   font-family: "Poppins";
   font-style: normal;
 }
-.recommend__map-recommend-container {
-  /* border: 1.5px solid #9a9a9a; */
+
+.recommand_item_emoji {
   width: 100%;
-  overflow: auto;
-  height: 100%;
+  background-color: rgba(65, 175, 249, 0.2);
+  margin-bottom: 20px;
+  border-radius: 30px;
+  height: 205px;
+}
+
+.recommend_text_emoji {
+  height: 205px;
+  width: 48%;
+  margin-left: 25px;
+  display: flex;
+  flex-direction: column; /* Vertical alignment */
+  align-items: center; /* Horizontal center alignment */
+  justify-content: space-between; /* Distribute space between top and bottom */
 }
 
 .recommend-item__container {
-  /* opacity: 0; */
-  /* transform: translateY(20px); */
-  /* transition: opacity 0.5s ease, transform 0.5s ease; */
   display: flex;
   align-items: center;
   width: 100%;
+  height: auto;
 }
 
 .recommend-item__img {
-  margin-right: 20px;
   border-radius: 12px;
   margin-top: 0px;
-  width: 50%;
-  height: 50%;
-  z-index: 2;
+  width: 40%;
+  height: 40%;
+  z-index: 0;
+  position: relative;
+  transition: width 0.3s, height 0.3s; /* Smooth transition for hover effect */
 }
 
 .recommend-item__img:hover {
   height: 100%;
-  width: 100%;
+  width: 105%;
+  z-index: 1; /* Bring the hovered image to the front */
 }
 
 .recommend-item__text {
-  width: 100%;
-  margin-left: 25px;
+  width: auto;
   margin-right: 10px;
-  font-size: 15px;
+  font-size: 20px;
   font-style: normal;
   font-weight: bold;
-  max-width: 80px;
-  background-color: ;
+  max-width: 250px;
+  align-self: center; /* Horizontal center alignment */
+  margin-top: 70px;
 }
 
 .recommend-item__list {
   height: 100%;
 }
 
+.recooment_icon_class {
+  align-self: center; /* Horizontal center alignment */
+  margin-bottom: 10px; /* Optional bottom margin */
+}
+
 .heart-icon {
-  width: 27px;
+  width: auto;
   height: 27px;
   cursor: pointer;
-  margin-left: auto;
   margin-right: 0px;
   z-index: 1;
   position: relative;
@@ -66,25 +82,26 @@
   margin-right: 5px;
   margin-left: 8px;
 }
+
 .recommend-item__icon-container {
-  background-color: rgba(0, 0, 0, 0.1); /* 글자색 설정 */
-  display: inline-flex; /* inline-flex로 변경 */
+  background-color: rgba(65, 175, 249, 0.3); /* Background color */
+  display: inline-flex; /* Changed to inline-flex */
   border-radius: 8px;
   align-items: center;
   margin-top: 10px;
-  min-width: 50px; /* 최소 너비 설정 */
-  padding: 4px 10px; /* 내부 여백 추가 */
-  box-sizing: border-box; /* 패딩 포함한 박스 크기 계산 */
+  min-width: 50px; /* Minimum width */
+  padding: 4px 10px; /* Inner padding */
+  box-sizing: border-box; /* Box size includes padding */
   margin-right: 5px;
-  margin-bottom: 20px;
 }
 
 .recommend-item__icon-text {
-  font-size: 12px;
-  white-space: nowrap; /* 텍스트 줄 바꿈 방지 */
+  font-size: 13px;
+  white-space: nowrap; /* Prevent text wrapping */
   margin-top: 4px;
   margin-bottom: 4px;
   color: black;
+  font-weight: bold;
   /* margin-left: 10px; */
   /* margin-right: 10px; */
 }

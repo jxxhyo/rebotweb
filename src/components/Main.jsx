@@ -1,22 +1,23 @@
 // src/Chat.js
-import "./../styles/Main.css";
-import "./../styles/Bookmark.css";
-import "./../styles/Chat.css";
-import { useNavigate, useParams } from "react-router-dom";
+
 import React, { useState, useEffect, useCallback, useRef } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import { Wrapper, Status } from "@googlemaps/react-wrapper";
-import Mapcustom from "./Mapcustom";
 import { useTranslation } from "react-i18next";
+import Mapcustom from "./Mapcustom";
 import { MessageList } from "./MessageList";
 import { MessageForm } from "./MessageForm";
 import MapBookmark from "./MapBookmark";
 import Recommend from "./Recommend";
 import Bookmark from "./Bookmark";
-// import RestaurantCoordinates from './RestaurantCoordinates';
 import { getRestaurantCoordinates } from "./GetRestaurantCoordinates";
 import robotImg from "./../img/rebot.png";
-import userImg from "./../img/user.png";
+import userImg from "./../img/u.png";
 import Tooltip from "./Tooltip";
+
+import "./../styles/Main.css";
+import "./../styles/Bookmark.css";
+import "./../styles/Chat.css";
 
 const Chat = () => {
   const navigate = useNavigate();
@@ -90,8 +91,20 @@ const Chat = () => {
     ]);
   };
 
+  const handleMapButtonClick = () => {
+    setSelectedOption("map");
+  };
+
+  const handleRecommendButtonClick = () => {
+    setSelectedOption("recommend");
+  };
+
   const handleRankingButtonClick = () => {
     setSelectedOption("recommend");
+  };
+
+  const handleBookmarkButtonClick = () => {
+    setSelectedOption("bookmark");
   };
 
   const resetMap = () => {
@@ -257,6 +270,7 @@ const Chat = () => {
 
       if (response.ok) {
         setChatHistory([]);
+        window.location.reload(); // 페이지 새로고침
       } else {
         console.log("Failed to delete chat history");
       }
@@ -294,7 +308,10 @@ const Chat = () => {
         credentials: "include",
         body: JSON.stringify({ name: restaurantName }),
       });
-      fetchBookmarkedRestaurants();
+      await fetchBookmarkedRestaurants();
+      if (selectedOption === "recommend") {
+        await fetchRecommendedRestaurants(); // Refresh recommended restaurants
+      }
     } catch (error) {
       console.error("Error bookmarking restaurant:", error);
     }
@@ -318,6 +335,7 @@ const Chat = () => {
       console.error("Error unbookmarking restaurant:", error);
     }
   };
+
   const [name, setName] = useState("");
   const [showMap, setShowMap] = useState(false); // 상태를 추가하여 MapCustom 컴포넌트의 렌더링을 제어합니다.
   const [errorMessage, setErrorMessage] = useState("");
@@ -337,64 +355,88 @@ const Chat = () => {
     }
   };
 
+  const [showTooltip, setShowTooltip] = useState(true);
+
+  const toggleTooltipVisibility = () => {
+    setShowTooltip(!showTooltip);
+  };
+
   return (
     <>
       <div className="container">
         <div className="top__container">
           <div className="name_k-rebot">K-REBOT</div>
-          <div className="bookmark_click">BOOKMARK</div>
           <p className="header__logout" onClick={onLogoutHandler}>
             {t("Chat.logout")}
           </p>
         </div>
         <div className="main__container">
           <aside className="recommend">
+            <div className="recommend__three-button">
+              <button
+                className={`recommend__map-button ${
+                  selectedOption === "map" ? "active" : ""
+                }`}
+                onClick={handleMapButtonClick}
+              >
+                {t("Chat.map")}
+              </button>
+              <button
+                className={`recommend__recommend-button ${
+                  selectedOption === "recommend" ? "active" : ""
+                }`}
+                onClick={handleRecommendButtonClick}
+              >
+                {t("Chat.recommend")}
+              </button>
+              <button
+                className={`recommend__bookmark-button ${
+                  selectedOption === "bookmark" ? "active" : ""
+                }`}
+                onClick={handleBookmarkButtonClick}
+              >
+                {t("Chat.bookmark")}
+              </button>
+            </div>
             <div className="recommend__container">
-              <div className="recommend__button-container">
-                <div>
-                  <button
-                    className="recommend__recommend-button"
-                    onClick={() => {
-                      handleRankingButtonClick();
-                    }}
-                  >
-                    {t("Chat.recommend")}
-                  </button>
-                  <button
-                    className="recommend__map-button"
-                    onClick={() => setSelectedOption("map")}
-                  >
-                    {t("Chat.map")}
-                  </button>
-                </div>
-              </div>
-              <form className="search" onSubmit={handleRestaurantSearch}>
-                <div className="recommend__input-box">
-                  <input
-                    type="text"
-                    className="recommend__input"
-                    value={name}
-                    placeholder={t("Map.search")}
-                    onChange={(e) => setName(e.target.value)}
-                  />
-                  <button
-                    type="submit"
-                    className="recommend__input_button"
-                  ></button>
-                </div>
-                {errorMessage && (
-                  <p className="recommend__error-message">{errorMessage}</p>
-                )}
-              </form>
               <div className="recommend__map-recommend-container">
                 {selectedOption === "map" && (
                   <Wrapper render={render}>
-                    <Mapcustom
-                      className="Mapcustom"
-                      markerLocation={selectedLocation}
-                      language={localStorage.getItem("i18nextLng")}
-                      zoom={zoom}
-                    />
+                    <div className="searchandbutton">
+                      <form
+                        className="search"
+                        onSubmit={handleRestaurantSearch}
+                      >
+                        <div className="recommend__input-box">
+                          <input
+                            type="text"
+                            className="recommend__input"
+                            value={name}
+                            placeholder={t("Map.search")}
+                            onChange={(e) => setName(e.target.value)}
+                          />
+                          <button
+                            type="submit"
+                            className="recommend__input_button"
+                          ></button>
+                        </div>
+                        {errorMessage && (
+                          <p className="recommend__error-message">
+                            {errorMessage}
+                          </p>
+                        )}
+                      </form>
+                      <button
+                        className="recommend__reload-button"
+                        onClick={() => {
+                          if (selectedOption === "map") {
+                            resetMap();
+                          } else if (selectedOption === "recommend") {
+                            fetchRecommendedRestaurants();
+                          }
+                        }}
+                      ></button>
+                    </div>
                     {selectedRestaurant && (
                       <MapBookmark
                         className="MapBookmark"
@@ -404,6 +446,12 @@ const Chat = () => {
                         bookmarkedRestaurants={bookmarkedRestaurants}
                       />
                     )}
+                    <Mapcustom
+                      className="Mapcustom"
+                      markerLocation={selectedLocation}
+                      language={localStorage.getItem("i18nextLng")}
+                      zoom={zoom}
+                    />
                   </Wrapper>
                 )}
                 {selectedOption === "recommend" && (
@@ -414,6 +462,16 @@ const Chat = () => {
                     handleUnbookmark={handleUnbookmark}
                     fetchBookmarkedRestaurants={fetchBookmarkedRestaurants}
                     bookmarkedRestaurants={bookmarkedRestaurants}
+                    fetchRecommendedRestaurants={fetchRecommendedRestaurants}
+                  />
+                )}
+
+                {selectedOption === "bookmark" && (
+                  <Bookmark
+                    bookmarkedRestaurants={bookmarkedRestaurants}
+                    baseURL={baseURL}
+                    handleBookmark={handleBookmark}
+                    handleUnbookmark={handleUnbookmark}
                   />
                 )}
               </div>
@@ -441,36 +499,3 @@ const Chat = () => {
 };
 
 export default Chat;
-
-/*<aside className="bookmark">
-            <div className="header__text-box02"></div>
-            <div className="bookmark__text-box">
-              <p className="bookmark__text font">{t("Chat.bookmark")}</p>
-            </div>
-            <Bookmark
-              bookmarkedRestaurants={bookmarkedRestaurants}
-              baseURL={baseURL}
-              handleBookmark={handleBookmark}
-              handleUnbookmark={handleUnbookmark}
-            />
-          </aside>*/
-
-/*<button
-                    className="recommend__reload-button"
-                    onClick={() => {
-                      if (selectedOption === "map") {
-                        resetMap();
-                      } else if (selectedOption === "recommend") {
-                        fetchRecommendedRestaurants();
-                      }
-                    }}
-                  ></button>
-                  <Tooltip text="This is a tooltip">
-                    <button>?</button>
-                  </Tooltip> */
-
-/*          <div className="header__text-box03">
-              <p className="header__welcome font">
-                {t("Chat.user")} {userInfo.username}!
-              </p>
-            </div> */

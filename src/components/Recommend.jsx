@@ -14,6 +14,7 @@ const Recommend = ({
   handleBookmark,
   handleUnbookmark,
   bookmarkedRestaurants,
+  fetchRecommendedRestaurants,
 }) => {
   const { t, i18n } = useTranslation();
 
@@ -37,7 +38,7 @@ const Recommend = ({
   return (
     <div>
       {recommendedRestaurants.map((restaurant) => (
-        <div key={restaurant.id}>
+        <div className="recommand_item_emoji" key={restaurant.id}>
           <div className="recommend-item__container">
             {language === "en" && (
               <img
@@ -67,9 +68,39 @@ const Recommend = ({
                 alt={`${restaurant.name}`}
               />
             )}
-            <div className="recommend-item__text-box">
-              <p className="recommend-item__text">{restaurant.name}</p>
+            <div className="recommend_text_emoji">
+              <div className="recommend-item__text-box">
+                <p className="recommend-item__text">{restaurant.name}</p>
+              </div>
+              <div className="recooment_icon_class">
+                {restaurant.mood === "연인·배우자" && (
+                  <div className="recommend-item__icon-container">
+                    <p className="recommend-item__icon-text font">
+                      {" "}
+                      🥰 {t("Mood.연인")}
+                    </p>
+                  </div>
+                )}
+                {restaurant.mood === "지인·동료" && (
+                  <div className="recommend-item__icon-container">
+                    <p className="recommend-item__icon-text font">
+                      {" "}
+                      🍽️ {t("Mood.지인")}
+                    </p>
+                  </div>
+                )}
+                {restaurant.mood === "친구" && (
+                  <div className="recommend-item__icon-container">
+                    <p className="recommend-item__icon-text font">
+                      {" "}
+                      🤗 {t("Mood.친구")}
+                    </p>
+                  </div>
+                )}
+                <RestaurantIcons category={restaurant.category} />
+              </div>
             </div>
+
             {isBookmarked(restaurant) ? (
               <img
                 src={bookmark}
@@ -86,32 +117,6 @@ const Recommend = ({
               />
             )}
           </div>
-          {restaurant.mood === "연인·배우자" && (
-            <div className="recommend-item__icon-container">
-              <p className="recommend-item__icon-text font">
-                {" "}
-                🥰 {t("Mood.연인")}
-              </p>
-            </div>
-          )}
-          {restaurant.mood === "지인·동료" && (
-            <div className="recommend-item__icon-container">
-              <p className="recommend-item__icon-text font">
-                {" "}
-                🍽️ {t("Mood.지인")}
-              </p>
-            </div>
-          )}
-          {restaurant.mood === "친구" && (
-            <div className="recommend-item__icon-container">
-              <p className="recommend-item__icon-text font">
-                {" "}
-                🤗 {t("Mood.친구")}
-              </p>
-            </div>
-          )}
-
-          <RestaurantIcons category={restaurant.category} />
         </div>
       ))}
     </div>

@@ -14,14 +14,33 @@
 }
 
 .login__container {
- height: 100vh;
+  height: 100vh;
   width: 100vw;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(90deg, rgba(15, 124, 240, 0.937255) 0%, rgba(62, 195, 254, 0.937255) 100%);
+  background: linear-gradient(
+    90deg,
+    rgba(15, 124, 240, 0.937255) 0%,
+    rgba(62, 195, 254, 0.937255) 100%
+  );
   position: relative;
   overflow: hidden;
+}
+
+.login__container {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* background: linear-gradient(90deg, rgba(15, 124, 240, 0.937255) 0%, rgba(62, 195, 254, 0.937255) 100%); */
+  /* position: relative; */
+  /* overflow: hidden; */
+  background-image: url("./../img/login.png");
+  background-size: cover;
+
+  /* background: rgba(255, 255, 255, 0); 배경 제거 */
 }
 
 .login__images {
@@ -40,7 +59,7 @@
   right: 5%;
   width: 20%;
   transform: scaleX(-1) rotate(-30deg);
-  background-image: url('./../img/egg.png');
+  background-image: url("./../img/egg.png");
   background: rgba(255, 255, 255, 0); /* 배경 제거 */
 
   /* egg */
@@ -51,10 +70,8 @@
   right: -2%;
   width: 20%;
   transform: scaleX(-1);
-  background-image: url('./../img/cola.png');
+  background-image: url("./../img/cola.png");
   background: rgba(255, 255, 255, 0); /* 배경 제거 */
-
-
 }
 
 .login-left__image3 {
@@ -65,7 +82,7 @@
   transform: scaleX(-1) rotate(30deg);
   background: rgba(255, 255, 255, 0); /* 배경 제거 */
 
-  background-image: url('./../img/pizza.png');
+  background-image: url("./../img/pizza.png");
 
   /* transform: scaleY(-1); */
 }
@@ -114,7 +131,7 @@
 }
 
 .font {
-  font-family: 'Poppins';
+  font-family: "Poppins";
   font-style: normal;
 }
 
@@ -173,7 +190,6 @@
   border: none;
   font-family: "Architype Aubette W90", sans-serif;
 }
-
 
 form {
   display: flex;

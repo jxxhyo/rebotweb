@@ -80,7 +80,7 @@
   },
   "Mood": {
     "친구": "With Friends",
-    "연인": "With Partner·Spouse",
-    "지인": "With Acquaintances·Colleagues"
+    "연인": "With Partner",
+    "지인": "With Acquaintances"
   }
 }

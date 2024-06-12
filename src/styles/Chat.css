@@ -4,9 +4,13 @@
   height: 94%;
   flex-direction: column;
   overflow-y: auto;
-  width: 98%;
-  margin-left: 13px;
-  /* background-color: red; */
+  width: 100%;
+
+  transition: box-shadow 0.3s ease; /* 스크롤 시 그림자 애니메이션 */
+}
+
+.chat__messages-container.scrolled {
+  box-shadow: inset 0px 10px 20px 5px rgba(40, 134, 242, 0.1); /* 스크롤된 상태에서의 그림자 */
 }
 
 .chat__bot-message-container {
@@ -37,12 +41,18 @@
   height: 50px;
   margin: 0 30px 0 0;
   transform: scaleX(-1);
+  background-color: rgb(40, 134, 242);
+  border-radius: 100%;
+  padding: 10px;
 }
 
 .chat__user-icon {
   width: 40px;
   margin: 0 0px 0 30px;
   height: 40px;
+  background-color: rgb(40, 134, 242);
+  border-radius: 100%;
+  padding: 10px;
 }
 
 .chat__bot-message-box {
@@ -77,7 +87,7 @@
 .chat__input-box {
   display: flex;
   align-items: center;
-  width: 100%; /* 너비를 100%로 설정 */
+  width: 98%; /* 너비를 100%로 설정 */
   height: 60px;
   border: 1px solid #ccc;
   border-radius: 8px; /* 둥근 모서리 설정 */
@@ -90,7 +100,7 @@
   flex: 1;
   border: none;
   padding: 0 0 0 20px;
-  font-size: 16px;
+  font-size: 20px;
   border-radius: 25px;
   outline: none;
   width: 100%;
@@ -136,21 +146,22 @@ input:focus {
   border: none;
   border-radius: 5px;
   /* margin-right: 10px; */
-  margin-left: 20px;
+  margin-top: 20px; /* 버튼의 위쪽 여백 추가 */
   cursor: pointer;
   padding: 5px;
 }
 
 .no_history_image {
-  width: 370px;
-  height: 370px;
+  width: 500px;
+  height: 500px;
   margin: auto; /* 이미지가 수평으로 가운데에 오도록 설정 */
+  opacity: 1;
 }
 
 .chat__no-messages {
   display: flex;
+  flex-direction: column; /* 이미지와 버튼을 세로로 배치 */
   justify-content: center;
   align-items: center;
   height: 100%; /* 컨테이너의 높이를 100%로 설정 */
-  opacity: 1;
 }

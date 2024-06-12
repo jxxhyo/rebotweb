@@ -19,16 +19,15 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  
-  background: linear-gradient(90deg, rgba(15, 124, 240, 0.937255) 0%, rgba(62, 195, 254, 0.937255) 100%);
-  position: relative;
-  overflow: hidden;
+  background-image: url("./../img/home.png");
+  background-repeat: no-repeat; /* 이미지를 반복하지 않음 */
+  /* background: linear-gradient(90deg, rgba(15, 124, 240, 0.937255) 0%, rgba(62, 195, 254, 0.937255) 100%); */
+  /* position: relative; */
+  /* overflow: hidden; */
+  background-size: cover;
 }
 
-
-
 .home-right {
-
   width: 100%;
   /* max-width: 400px; */
   padding: 20px;
@@ -44,25 +43,25 @@
   font-family: "Arial Rounded Bold", -apple-system, BlinkMacSystemFont,
     "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
     "Droid Sans", "Helvetica Neue", sans-serif; /* 폰트 설정 */
-
 }
-.home-right__button-container{
+.home-right__button-container {
   width: 300px;
   height: 100px;
   display: flex;
   margin-left: 78%;
-  flex-direction: row; 
-  align-items: center; 
+  margin-top: 30px;
+  flex-direction: row;
+  align-items: center;
   justify-content: flex-end;
 }
-.home-img{
+.home-img {
   display: flex;
 
-  left:100%;
+  left: 100%;
 }
 
 .font {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   font-style: normal;
 }
 
@@ -70,13 +69,11 @@
   display: inline-block;
   text-align: center;
   margin: -50px 0 30px 0;
-  
 }
 .home-right__korean-text-box {
   display: inline-block;
   text-align: center;
   margin: -10px 0 90px 0;
-  
 }
 
 .home-right__k-rebot {
@@ -88,15 +85,15 @@
   /* margin-top: -10px; */
   margin-bottom: -10px;
 }
-.home-right__seongsu{
+.home-right__seongsu {
   font-family: "Architype Aubette W90", sans-serif;
   font-weight: bold;
   font-size: 22px;
   line-height: 100%;
-  color:  rgb(16, 181, 252);
-  margin-bottom: 120px;
-  margin-top:-20px;
-  margin-left: 380px;
+  color: #4682b4;
+  margin-bottom: 140px;
+  margin-top: -31px;
+  margin-left: 375px;
 }
 .home-right__korean {
   font-family: "Architype Aubette W90", sans-serif;
@@ -109,10 +106,9 @@
   overflow: hidden; /* 텍스트 오버플로우를 숨김 */
   white-space: nowrap; /* 텍스트가 줄바꿈되지 않도록 설정 */
   padding-bottom: 7px; /* 아래쪽 여분의 공간 확보 */
-  border-right: .15em solid orange; /* 텍스트의 오른쪽에 깜빡이는 커서 생성 */
-  animation: typing 2s steps(40, end), blink-caret .75s step-end infinite;
+  border-right: 0.15em solid orange; /* 텍스트의 오른쪽에 깜빡이는 커서 생성 */
+  animation: typing 2s steps(40, end), blink-caret 0.75s step-end infinite;
 }
-
 
 /* 타이핑 애니메이션 키프레임 */
 @keyframes typing {
@@ -126,7 +122,8 @@
 
 /* 커서 깜빡임 애니메이션 키프레임 */
 @keyframes blink-caret {
-  from, to {
+  from,
+  to {
     border-color: transparent;
   }
   50% {
@@ -134,9 +131,7 @@
   }
 }
 
-
 .home-right__button {
-
   width: 290px;
   height: 63px;
 
@@ -152,7 +147,6 @@
   cursor: pointer;
 }
 
-
 .home-right__text {
   position: absolute;
   width: 1435px;
@@ -164,20 +158,20 @@
   line-height: 100%;
   color: rgba(0, 0, 0, 0.5);
 }
-.home-right__language-button{
-  background-color: transparent; 
-  border: none; 
+.home-right__language-button {
+  background-color: transparent;
+  border: none;
   margin-right: 10px;
-  padding: 0 5px; 
-  position: relative; 
-  color:black;
+  padding: 0 5px;
+  position: relative;
+  color: black;
   font-size: 14px;
   cursor: pointer;
 }
 .home-right__language-button::after {
-  content: "|"; 
+  content: "|";
   position: absolute;
-  right: -5px; 
+  right: -5px;
 }
 
 .home__images {
@@ -195,17 +189,15 @@
   top: 46%;
   right: 31%;
   width: 14%;
-  background-image: url('./../img/bubble.png');
+  background-image: url("./../img/bubble.png");
   background: rgba(255, 255, 255, 0); /* 배경 제거 */
 }
-
-
 
 .home-left__image3 {
   bottom: 0%;
   left: -5%;
   width: 20%;
-  background-image: url('./../img/egg.png');
+  background-image: url("./../img/egg.png");
   background: rgba(255, 255, 255, 0); /* 배경 제거 */
 }
 
@@ -214,13 +206,12 @@
   left: 1%;
   width: 22%;
   transform: rotate(0deg);
-  background-image: url('./../img/flight.png');
+  background-image: url("./../img/flight.png");
   background: rgba(255, 255, 255, 0); /* 배경 제거 */
-
 }
 
 .home-left__image5 {
-  background-image: url('./../img/korea.png');
+  background-image: url("./../img/korea.png");
   /* background-repeat: no-repeat;   */
   bottom: 10%;
   left: 80%;
@@ -229,13 +220,9 @@
   background: rgba(255, 255, 255, 0); /* 배경 제거 */
   /* background-color: red; */
   /* background-position: center; 이미지를 가운데로 정렬 */
-
 }
 
 .home-left__image6 {
-  top: 56%;
-  left: 46.5%;
   width: 7%;
   /* background-image: url('./../img/rebot.png'); */
-  
 }
